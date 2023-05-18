@@ -10,7 +10,8 @@
     "build-staging": "tsc && vite build --mode staging",
     "preview": "vite preview",
     "test": "vitest run src",
-    "test:watch": "vitest src"
+    "test:watch": "vitest src",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
@@ -47,6 +48,8 @@
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",
+    "@vitest/coverage-istanbul": "^0.31.1",
+    "@vitest/ui": "^0.31.1",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.23.1",
     "eslint-config-react-app": "^7.0.1",
