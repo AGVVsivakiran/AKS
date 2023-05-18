@@ -1,0 +1,28 @@
+# Pipeline: CI
+# Trigger: On push to any branch
+# Purpose: Run unit tests
+
+trigger:
+  - features/test-ci-integration
+
+pool:
+  vmImage: windows-latest
+
+steps:
+  - script: echo Hello, world!
+    displayName: "Run a one-line script"
+
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: "Run a multi-line script"
+
+  - task: VSTest@2
+    inputs:
+      testSelector: "testAssemblies"
+      testAssemblyVer2: |
+        **\*test*.dll
+        !**\*TestAdapter.dll
+        !**\obj\**
+        **/*.test.{ts,tsx}
+      searchFolder: "$(System.DefaultWorkingDirectory)/webapp"
